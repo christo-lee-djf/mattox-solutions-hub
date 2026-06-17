@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Search, Menu } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import aiImg from "@/assets/ai.jpg";
 import industryImg from "@/assets/industry.jpg";
 import peopleImg from "@/assets/people.jpg";
+import { SiteShell } from "@/components/site/Page";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,42 +13,12 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "We help the world's leading businesses, governments and organizations reinvent through technology — strategy, AI, cloud and operations at scale." },
       { property: "og:title", content: "Mattox Solution | Let there be change" },
       { property: "og:description", content: "Reinvention starts here. Strategy, AI, cloud and operations at scale." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });
-
-function Header() {
-  const nav = ["What we do", "What we think", "Who we are", "Careers"];
-  return (
-    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur border-b border-border">
-      <div className="container-px flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-foreground">
-          <span className="text-[1.35rem] font-semibold tracking-tight purple-caret purple-caret-after">
-            mattox
-          </span>
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground hidden sm:inline">
-            Solution
-          </span>
-        </Link>
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
-          {nav.map((n) => (
-            <a key={n} href="#" className="text-foreground/80 hover:text-primary transition-colors">
-              {n}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2">
-          <button aria-label="Search" className="p-2 hover:text-primary"><Search className="size-5" /></button>
-          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:bg-primary transition-colors">
-            Contact us
-          </a>
-          <button aria-label="Menu" className="lg:hidden p-2"><Menu className="size-5" /></button>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 function Hero() {
   return (
@@ -63,12 +34,12 @@ function Hero() {
             We partner with the world's leading companies to reinvent through technology — building digital cores, scaling AI, and turning bold strategy into measurable outcomes.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition">
+            <Link to="/what-we-do" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition">
               See what we do <ArrowRight className="size-4" />
-            </a>
-            <a href="#careers" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3 text-sm font-medium hover:border-primary hover:text-primary transition">
+            </Link>
+            <Link to="/careers" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3 text-sm font-medium hover:border-primary hover:text-primary transition">
               Join us
-            </a>
+            </Link>
           </div>
         </div>
         <div className="lg:col-span-5 relative">
@@ -97,12 +68,12 @@ function Hero() {
 }
 
 const services = [
-  { title: "Strategy & Consulting", desc: "Set the direction. Reimagine the operating model. Outcompete with a clear plan for value.", tag: "01" },
-  { title: "Technology", desc: "Modernize the digital core — cloud, data, platforms and security engineered for change.", tag: "02" },
-  { title: "Artificial Intelligence", desc: "Industrialize generative AI from pilot to enterprise scale with responsible foundations.", tag: "03" },
-  { title: "Operations", desc: "Run intelligent operations that learn, adapt and unlock new sources of growth.", tag: "04" },
-  { title: "Industry X", desc: "Reinvent engineering, manufacturing and the connected product lifecycle.", tag: "05" },
-  { title: "Song", desc: "Create relevance at every moment — brand, commerce, content and customer experience.", tag: "06" },
+  { title: "Strategy & Consulting", desc: "Set the direction. Reimagine the operating model. Outcompete with a clear plan for value.", tag: "01", to: "/what-we-do/strategy-consulting" as const },
+  { title: "Technology", desc: "Modernize the digital core — cloud, data, platforms and security engineered for change.", tag: "02", to: "/what-we-do/technology" as const },
+  { title: "Artificial Intelligence", desc: "Industrialize generative AI from pilot to enterprise scale with responsible foundations.", tag: "03", to: "/what-we-do/ai" as const },
+  { title: "Operations", desc: "Run intelligent operations that learn, adapt and unlock new sources of growth.", tag: "04", to: "/what-we-do/operations" as const },
+  { title: "Industry X", desc: "Reinvent engineering, manufacturing and the connected product lifecycle.", tag: "05", to: "/what-we-do/industry-x" as const },
+  { title: "Song", desc: "Create relevance at every moment — brand, commerce, content and customer experience.", tag: "06", to: "/what-we-do/song" as const },
 ];
 
 function Services() {
@@ -119,12 +90,12 @@ function Services() {
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-border">
         {services.map((s) => (
-          <a key={s.title} href="#" className="group relative p-8 border-b border-r border-border last:border-r-0 hover:bg-surface transition-colors flex flex-col min-h-[280px]">
+          <Link key={s.title} to={s.to} className="group relative p-8 border-b border-r border-border last:border-r-0 hover:bg-surface transition-colors flex flex-col min-h-[280px]">
             <span className="eyebrow text-primary">{s.tag}</span>
             <h3 className="mt-6 text-2xl font-medium tracking-tight">{s.title}</h3>
             <p className="mt-3 text-muted-foreground leading-relaxed">{s.desc}</p>
             <ArrowUpRight className="mt-auto size-6 text-foreground/60 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
-          </a>
+          </Link>
         ))}
       </div>
     </section>
@@ -156,7 +127,7 @@ function Feature() {
               </div>
             ))}
           </div>
-          <a href="#" className="link-underline mt-10 text-background">Read the AI report <ArrowRight className="size-4" /></a>
+          <Link to="/what-we-think/ai-reinvention" className="link-underline mt-10 text-background">Read the AI report <ArrowRight className="size-4" /></Link>
         </div>
       </div>
     </section>
@@ -164,8 +135,12 @@ function Feature() {
 }
 
 const industries = [
-  "Banking", "Capital Markets", "Insurance", "Health", "Life Sciences", "Public Service",
-  "Consumer Goods", "Retail", "Energy", "Utilities", "Industrial", "Communications & Media",
+  { name: "Banking", to: "/industries/banking" as const },
+  { name: "Health", to: "/industries/health" as const },
+  { name: "Public Service", to: "/industries/public-service" as const },
+  { name: "Retail", to: "/industries/retail" as const },
+  { name: "Energy", to: "/industries/energy" as const },
+  { name: "Communications & Media", to: "/industries/communications-media" as const },
 ];
 
 function Industries() {
@@ -182,11 +157,14 @@ function Industries() {
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
         {industries.map((i) => (
-          <a key={i} href="#" className="group bg-background p-6 flex items-center justify-between hover:bg-primary hover:text-primary-foreground transition-colors">
-            <span className="text-lg font-medium">{i}</span>
+          <Link key={i.name} to={i.to} className="group bg-background p-6 flex items-center justify-between hover:bg-primary hover:text-primary-foreground transition-colors">
+            <span className="text-lg font-medium">{i.name}</span>
             <ArrowUpRight className="size-5 opacity-60 group-hover:opacity-100" />
-          </a>
+          </Link>
         ))}
+      </div>
+      <div className="mt-8">
+        <Link to="/industries" className="link-underline">All industries <ArrowRight className="size-4" /></Link>
       </div>
     </section>
   );
@@ -207,18 +185,18 @@ function Insights() {
             <p className="eyebrow mb-5">What we think</p>
             <h2 className="headline-lg text-ink">Latest thinking.</h2>
           </div>
-          <a href="#" className="link-underline text-foreground">All insights <ArrowRight className="size-4" /></a>
+          <Link to="/what-we-think" className="link-underline text-foreground">All insights <ArrowRight className="size-4" /></Link>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {insights.map((p) => (
-            <a key={p.title} href="#" className="group block">
+            <Link key={p.title} to="/what-we-think/ai-reinvention" className="group block">
               <div className="aspect-[4/3] overflow-hidden mb-5">
                 <img src={p.img} alt="" loading="lazy" width={1280} height={896} className="size-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <p className="eyebrow text-primary mb-3">{p.tag}</p>
               <h3 className="text-xl font-medium leading-snug group-hover:text-primary transition-colors">{p.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{p.read}</p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -237,12 +215,12 @@ function Careers() {
             At Mattox Solution, you'll work alongside 738,000 people in 120 countries on the work that matters most — for our clients, our communities, and the planet.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition">
+            <Link to="/careers/search-jobs" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition">
               Search jobs <ArrowRight className="size-4" />
-            </a>
-            <a href="#" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3 text-sm font-medium hover:border-primary hover:text-primary transition">
+            </Link>
+            <Link to="/careers/life-at-mattox" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-3 text-sm font-medium hover:border-primary hover:text-primary transition">
               Life at Mattox
-            </a>
+            </Link>
           </div>
         </div>
         <div className="lg:col-span-6 order-1 lg:order-2">
@@ -257,77 +235,27 @@ function CTA() {
   return (
     <section id="contact" className="bg-primary text-primary-foreground">
       <div className="container-px py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-center">
-        <h2 className="lg:col-span-8 headline-lg">
-          Ready to reinvent? Let's start the conversation.
-        </h2>
+        <h2 className="lg:col-span-8 headline-lg">Ready to reinvent? Let's start the conversation.</h2>
         <div className="lg:col-span-4 lg:justify-self-end">
-          <a href="#" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-7 py-4 text-base font-medium hover:bg-ink hover:text-background transition">
+          <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-7 py-4 text-base font-medium hover:bg-ink hover:text-background transition">
             Contact Mattox <ArrowRight className="size-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-function Footer() {
-  const cols = [
-    { title: "What we do", items: ["Strategy", "Consulting", "Technology", "AI", "Operations", "Industry X"] },
-    { title: "Who we are", items: ["About", "Leadership", "Newsroom", "Investors", "Sustainability"] },
-    { title: "Careers", items: ["Search jobs", "Life at Mattox", "Students", "Experienced", "Locations"] },
-    { title: "Connect", items: ["Contact", "Subscribe", "LinkedIn", "X / Twitter", "YouTube"] },
-  ];
-  return (
-    <footer className="bg-ink text-background">
-      <div className="container-px pt-20 pb-10">
-        <div className="grid lg:grid-cols-12 gap-10 pb-16 border-b border-background/15">
-          <div className="lg:col-span-4">
-            <div className="text-3xl font-semibold tracking-tight purple-caret purple-caret-after">mattox</div>
-            <p className="mt-5 text-background/60 max-w-sm leading-relaxed">
-              A global professional services company, partnering with the world's boldest organizations to create lasting value.
-            </p>
-          </div>
-          <div className="lg:col-span-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {cols.map((c) => (
-              <div key={c.title}>
-                <h4 className="text-sm font-semibold mb-4">{c.title}</h4>
-                <ul className="space-y-2.5">
-                  {c.items.map((i) => (
-                    <li key={i}><a href="#" className="text-sm text-background/65 hover:text-background transition">{i}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-background/55">
-          <p>© {new Date().getFullYear()} Mattox Solution. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-background">Privacy</a>
-            <a href="#" className="hover:text-background">Terms</a>
-            <a href="#" className="hover:text-background">Cookies</a>
-            <a href="#" className="hover:text-background">Accessibility</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Feature />
-        <Industries />
-        <Insights />
-        <Careers />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <SiteShell>
+      <Hero />
+      <Services />
+      <Feature />
+      <Industries />
+      <Insights />
+      <Careers />
+      <CTA />
+    </SiteShell>
   );
 }

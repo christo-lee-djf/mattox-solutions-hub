@@ -9,38 +9,401 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
+import { Route as WhatWeThinkRouteImport } from './routes/what-we-think'
+import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WhoWeAreSustainabilityRouteImport } from './routes/who-we-are.sustainability'
+import { Route as WhoWeAreNewsroomRouteImport } from './routes/who-we-are.newsroom'
+import { Route as WhoWeAreLeadershipRouteImport } from './routes/who-we-are.leadership'
+import { Route as WhatWeThinkAiReinventionRouteImport } from './routes/what-we-think.ai-reinvention'
+import { Route as WhatWeDoTechnologyRouteImport } from './routes/what-we-do.technology'
+import { Route as WhatWeDoStrategyConsultingRouteImport } from './routes/what-we-do.strategy-consulting'
+import { Route as WhatWeDoSongRouteImport } from './routes/what-we-do.song'
+import { Route as WhatWeDoOperationsRouteImport } from './routes/what-we-do.operations'
+import { Route as WhatWeDoIndustryXRouteImport } from './routes/what-we-do.industry-x'
+import { Route as WhatWeDoAiRouteImport } from './routes/what-we-do.ai'
+import { Route as IndustriesRetailRouteImport } from './routes/industries.retail'
+import { Route as IndustriesPublicServiceRouteImport } from './routes/industries.public-service'
+import { Route as IndustriesHealthRouteImport } from './routes/industries.health'
+import { Route as IndustriesEnergyRouteImport } from './routes/industries.energy'
+import { Route as IndustriesCommunicationsMediaRouteImport } from './routes/industries.communications-media'
+import { Route as IndustriesBankingRouteImport } from './routes/industries.banking'
+import { Route as CareersSearchJobsRouteImport } from './routes/careers.search-jobs'
+import { Route as CareersLifeAtMattoxRouteImport } from './routes/careers.life-at-mattox'
 
+const WhoWeAreRoute = WhoWeAreRouteImport.update({
+  id: '/who-we-are',
+  path: '/who-we-are',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeThinkRoute = WhatWeThinkRouteImport.update({
+  id: '/what-we-think',
+  path: '/what-we-think',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeDoRoute = WhatWeDoRouteImport.update({
+  id: '/what-we-do',
+  path: '/what-we-do',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhoWeAreSustainabilityRoute = WhoWeAreSustainabilityRouteImport.update({
+  id: '/sustainability',
+  path: '/sustainability',
+  getParentRoute: () => WhoWeAreRoute,
+} as any)
+const WhoWeAreNewsroomRoute = WhoWeAreNewsroomRouteImport.update({
+  id: '/newsroom',
+  path: '/newsroom',
+  getParentRoute: () => WhoWeAreRoute,
+} as any)
+const WhoWeAreLeadershipRoute = WhoWeAreLeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => WhoWeAreRoute,
+} as any)
+const WhatWeThinkAiReinventionRoute =
+  WhatWeThinkAiReinventionRouteImport.update({
+    id: '/ai-reinvention',
+    path: '/ai-reinvention',
+    getParentRoute: () => WhatWeThinkRoute,
+  } as any)
+const WhatWeDoTechnologyRoute = WhatWeDoTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => WhatWeDoRoute,
+} as any)
+const WhatWeDoStrategyConsultingRoute =
+  WhatWeDoStrategyConsultingRouteImport.update({
+    id: '/strategy-consulting',
+    path: '/strategy-consulting',
+    getParentRoute: () => WhatWeDoRoute,
+  } as any)
+const WhatWeDoSongRoute = WhatWeDoSongRouteImport.update({
+  id: '/song',
+  path: '/song',
+  getParentRoute: () => WhatWeDoRoute,
+} as any)
+const WhatWeDoOperationsRoute = WhatWeDoOperationsRouteImport.update({
+  id: '/operations',
+  path: '/operations',
+  getParentRoute: () => WhatWeDoRoute,
+} as any)
+const WhatWeDoIndustryXRoute = WhatWeDoIndustryXRouteImport.update({
+  id: '/industry-x',
+  path: '/industry-x',
+  getParentRoute: () => WhatWeDoRoute,
+} as any)
+const WhatWeDoAiRoute = WhatWeDoAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => WhatWeDoRoute,
+} as any)
+const IndustriesRetailRoute = IndustriesRetailRouteImport.update({
+  id: '/retail',
+  path: '/retail',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesPublicServiceRoute = IndustriesPublicServiceRouteImport.update({
+  id: '/public-service',
+  path: '/public-service',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesHealthRoute = IndustriesHealthRouteImport.update({
+  id: '/health',
+  path: '/health',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesEnergyRoute = IndustriesEnergyRouteImport.update({
+  id: '/energy',
+  path: '/energy',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const IndustriesCommunicationsMediaRoute =
+  IndustriesCommunicationsMediaRouteImport.update({
+    id: '/communications-media',
+    path: '/communications-media',
+    getParentRoute: () => IndustriesRoute,
+  } as any)
+const IndustriesBankingRoute = IndustriesBankingRouteImport.update({
+  id: '/banking',
+  path: '/banking',
+  getParentRoute: () => IndustriesRoute,
+} as any)
+const CareersSearchJobsRoute = CareersSearchJobsRouteImport.update({
+  id: '/search-jobs',
+  path: '/search-jobs',
+  getParentRoute: () => CareersRoute,
+} as any)
+const CareersLifeAtMattoxRoute = CareersLifeAtMattoxRouteImport.update({
+  id: '/life-at-mattox',
+  path: '/life-at-mattox',
+  getParentRoute: () => CareersRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/what-we-do': typeof WhatWeDoRouteWithChildren
+  '/what-we-think': typeof WhatWeThinkRouteWithChildren
+  '/who-we-are': typeof WhoWeAreRouteWithChildren
+  '/careers/life-at-mattox': typeof CareersLifeAtMattoxRoute
+  '/careers/search-jobs': typeof CareersSearchJobsRoute
+  '/industries/banking': typeof IndustriesBankingRoute
+  '/industries/communications-media': typeof IndustriesCommunicationsMediaRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/health': typeof IndustriesHealthRoute
+  '/industries/public-service': typeof IndustriesPublicServiceRoute
+  '/industries/retail': typeof IndustriesRetailRoute
+  '/what-we-do/ai': typeof WhatWeDoAiRoute
+  '/what-we-do/industry-x': typeof WhatWeDoIndustryXRoute
+  '/what-we-do/operations': typeof WhatWeDoOperationsRoute
+  '/what-we-do/song': typeof WhatWeDoSongRoute
+  '/what-we-do/strategy-consulting': typeof WhatWeDoStrategyConsultingRoute
+  '/what-we-do/technology': typeof WhatWeDoTechnologyRoute
+  '/what-we-think/ai-reinvention': typeof WhatWeThinkAiReinventionRoute
+  '/who-we-are/leadership': typeof WhoWeAreLeadershipRoute
+  '/who-we-are/newsroom': typeof WhoWeAreNewsroomRoute
+  '/who-we-are/sustainability': typeof WhoWeAreSustainabilityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/what-we-do': typeof WhatWeDoRouteWithChildren
+  '/what-we-think': typeof WhatWeThinkRouteWithChildren
+  '/who-we-are': typeof WhoWeAreRouteWithChildren
+  '/careers/life-at-mattox': typeof CareersLifeAtMattoxRoute
+  '/careers/search-jobs': typeof CareersSearchJobsRoute
+  '/industries/banking': typeof IndustriesBankingRoute
+  '/industries/communications-media': typeof IndustriesCommunicationsMediaRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/health': typeof IndustriesHealthRoute
+  '/industries/public-service': typeof IndustriesPublicServiceRoute
+  '/industries/retail': typeof IndustriesRetailRoute
+  '/what-we-do/ai': typeof WhatWeDoAiRoute
+  '/what-we-do/industry-x': typeof WhatWeDoIndustryXRoute
+  '/what-we-do/operations': typeof WhatWeDoOperationsRoute
+  '/what-we-do/song': typeof WhatWeDoSongRoute
+  '/what-we-do/strategy-consulting': typeof WhatWeDoStrategyConsultingRoute
+  '/what-we-do/technology': typeof WhatWeDoTechnologyRoute
+  '/what-we-think/ai-reinvention': typeof WhatWeThinkAiReinventionRoute
+  '/who-we-are/leadership': typeof WhoWeAreLeadershipRoute
+  '/who-we-are/newsroom': typeof WhoWeAreNewsroomRoute
+  '/who-we-are/sustainability': typeof WhoWeAreSustainabilityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/what-we-do': typeof WhatWeDoRouteWithChildren
+  '/what-we-think': typeof WhatWeThinkRouteWithChildren
+  '/who-we-are': typeof WhoWeAreRouteWithChildren
+  '/careers/life-at-mattox': typeof CareersLifeAtMattoxRoute
+  '/careers/search-jobs': typeof CareersSearchJobsRoute
+  '/industries/banking': typeof IndustriesBankingRoute
+  '/industries/communications-media': typeof IndustriesCommunicationsMediaRoute
+  '/industries/energy': typeof IndustriesEnergyRoute
+  '/industries/health': typeof IndustriesHealthRoute
+  '/industries/public-service': typeof IndustriesPublicServiceRoute
+  '/industries/retail': typeof IndustriesRetailRoute
+  '/what-we-do/ai': typeof WhatWeDoAiRoute
+  '/what-we-do/industry-x': typeof WhatWeDoIndustryXRoute
+  '/what-we-do/operations': typeof WhatWeDoOperationsRoute
+  '/what-we-do/song': typeof WhatWeDoSongRoute
+  '/what-we-do/strategy-consulting': typeof WhatWeDoStrategyConsultingRoute
+  '/what-we-do/technology': typeof WhatWeDoTechnologyRoute
+  '/what-we-think/ai-reinvention': typeof WhatWeThinkAiReinventionRoute
+  '/who-we-are/leadership': typeof WhoWeAreLeadershipRoute
+  '/who-we-are/newsroom': typeof WhoWeAreNewsroomRoute
+  '/who-we-are/sustainability': typeof WhoWeAreSustainabilityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/careers'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/what-we-do'
+    | '/what-we-think'
+    | '/who-we-are'
+    | '/careers/life-at-mattox'
+    | '/careers/search-jobs'
+    | '/industries/banking'
+    | '/industries/communications-media'
+    | '/industries/energy'
+    | '/industries/health'
+    | '/industries/public-service'
+    | '/industries/retail'
+    | '/what-we-do/ai'
+    | '/what-we-do/industry-x'
+    | '/what-we-do/operations'
+    | '/what-we-do/song'
+    | '/what-we-do/strategy-consulting'
+    | '/what-we-do/technology'
+    | '/what-we-think/ai-reinvention'
+    | '/who-we-are/leadership'
+    | '/who-we-are/newsroom'
+    | '/who-we-are/sustainability'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/careers'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/what-we-do'
+    | '/what-we-think'
+    | '/who-we-are'
+    | '/careers/life-at-mattox'
+    | '/careers/search-jobs'
+    | '/industries/banking'
+    | '/industries/communications-media'
+    | '/industries/energy'
+    | '/industries/health'
+    | '/industries/public-service'
+    | '/industries/retail'
+    | '/what-we-do/ai'
+    | '/what-we-do/industry-x'
+    | '/what-we-do/operations'
+    | '/what-we-do/song'
+    | '/what-we-do/strategy-consulting'
+    | '/what-we-do/technology'
+    | '/what-we-think/ai-reinvention'
+    | '/who-we-are/leadership'
+    | '/who-we-are/newsroom'
+    | '/who-we-are/sustainability'
+  id:
+    | '__root__'
+    | '/'
+    | '/careers'
+    | '/contact'
+    | '/industries'
+    | '/sitemap.xml'
+    | '/what-we-do'
+    | '/what-we-think'
+    | '/who-we-are'
+    | '/careers/life-at-mattox'
+    | '/careers/search-jobs'
+    | '/industries/banking'
+    | '/industries/communications-media'
+    | '/industries/energy'
+    | '/industries/health'
+    | '/industries/public-service'
+    | '/industries/retail'
+    | '/what-we-do/ai'
+    | '/what-we-do/industry-x'
+    | '/what-we-do/operations'
+    | '/what-we-do/song'
+    | '/what-we-do/strategy-consulting'
+    | '/what-we-do/technology'
+    | '/what-we-think/ai-reinvention'
+    | '/who-we-are/leadership'
+    | '/who-we-are/newsroom'
+    | '/who-we-are/sustainability'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CareersRoute: typeof CareersRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WhatWeDoRoute: typeof WhatWeDoRouteWithChildren
+  WhatWeThinkRoute: typeof WhatWeThinkRouteWithChildren
+  WhoWeAreRoute: typeof WhoWeAreRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/who-we-are': {
+      id: '/who-we-are'
+      path: '/who-we-are'
+      fullPath: '/who-we-are'
+      preLoaderRoute: typeof WhoWeAreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-think': {
+      id: '/what-we-think'
+      path: '/what-we-think'
+      fullPath: '/what-we-think'
+      preLoaderRoute: typeof WhatWeThinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-do': {
+      id: '/what-we-do'
+      path: '/what-we-do'
+      fullPath: '/what-we-do'
+      preLoaderRoute: typeof WhatWeDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +411,229 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/who-we-are/sustainability': {
+      id: '/who-we-are/sustainability'
+      path: '/sustainability'
+      fullPath: '/who-we-are/sustainability'
+      preLoaderRoute: typeof WhoWeAreSustainabilityRouteImport
+      parentRoute: typeof WhoWeAreRoute
+    }
+    '/who-we-are/newsroom': {
+      id: '/who-we-are/newsroom'
+      path: '/newsroom'
+      fullPath: '/who-we-are/newsroom'
+      preLoaderRoute: typeof WhoWeAreNewsroomRouteImport
+      parentRoute: typeof WhoWeAreRoute
+    }
+    '/who-we-are/leadership': {
+      id: '/who-we-are/leadership'
+      path: '/leadership'
+      fullPath: '/who-we-are/leadership'
+      preLoaderRoute: typeof WhoWeAreLeadershipRouteImport
+      parentRoute: typeof WhoWeAreRoute
+    }
+    '/what-we-think/ai-reinvention': {
+      id: '/what-we-think/ai-reinvention'
+      path: '/ai-reinvention'
+      fullPath: '/what-we-think/ai-reinvention'
+      preLoaderRoute: typeof WhatWeThinkAiReinventionRouteImport
+      parentRoute: typeof WhatWeThinkRoute
+    }
+    '/what-we-do/technology': {
+      id: '/what-we-do/technology'
+      path: '/technology'
+      fullPath: '/what-we-do/technology'
+      preLoaderRoute: typeof WhatWeDoTechnologyRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/what-we-do/strategy-consulting': {
+      id: '/what-we-do/strategy-consulting'
+      path: '/strategy-consulting'
+      fullPath: '/what-we-do/strategy-consulting'
+      preLoaderRoute: typeof WhatWeDoStrategyConsultingRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/what-we-do/song': {
+      id: '/what-we-do/song'
+      path: '/song'
+      fullPath: '/what-we-do/song'
+      preLoaderRoute: typeof WhatWeDoSongRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/what-we-do/operations': {
+      id: '/what-we-do/operations'
+      path: '/operations'
+      fullPath: '/what-we-do/operations'
+      preLoaderRoute: typeof WhatWeDoOperationsRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/what-we-do/industry-x': {
+      id: '/what-we-do/industry-x'
+      path: '/industry-x'
+      fullPath: '/what-we-do/industry-x'
+      preLoaderRoute: typeof WhatWeDoIndustryXRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/what-we-do/ai': {
+      id: '/what-we-do/ai'
+      path: '/ai'
+      fullPath: '/what-we-do/ai'
+      preLoaderRoute: typeof WhatWeDoAiRouteImport
+      parentRoute: typeof WhatWeDoRoute
+    }
+    '/industries/retail': {
+      id: '/industries/retail'
+      path: '/retail'
+      fullPath: '/industries/retail'
+      preLoaderRoute: typeof IndustriesRetailRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/public-service': {
+      id: '/industries/public-service'
+      path: '/public-service'
+      fullPath: '/industries/public-service'
+      preLoaderRoute: typeof IndustriesPublicServiceRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/health': {
+      id: '/industries/health'
+      path: '/health'
+      fullPath: '/industries/health'
+      preLoaderRoute: typeof IndustriesHealthRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/energy': {
+      id: '/industries/energy'
+      path: '/energy'
+      fullPath: '/industries/energy'
+      preLoaderRoute: typeof IndustriesEnergyRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/communications-media': {
+      id: '/industries/communications-media'
+      path: '/communications-media'
+      fullPath: '/industries/communications-media'
+      preLoaderRoute: typeof IndustriesCommunicationsMediaRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/industries/banking': {
+      id: '/industries/banking'
+      path: '/banking'
+      fullPath: '/industries/banking'
+      preLoaderRoute: typeof IndustriesBankingRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
+    '/careers/search-jobs': {
+      id: '/careers/search-jobs'
+      path: '/search-jobs'
+      fullPath: '/careers/search-jobs'
+      preLoaderRoute: typeof CareersSearchJobsRouteImport
+      parentRoute: typeof CareersRoute
+    }
+    '/careers/life-at-mattox': {
+      id: '/careers/life-at-mattox'
+      path: '/life-at-mattox'
+      fullPath: '/careers/life-at-mattox'
+      preLoaderRoute: typeof CareersLifeAtMattoxRouteImport
+      parentRoute: typeof CareersRoute
+    }
   }
 }
 
+interface CareersRouteChildren {
+  CareersLifeAtMattoxRoute: typeof CareersLifeAtMattoxRoute
+  CareersSearchJobsRoute: typeof CareersSearchJobsRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersLifeAtMattoxRoute: CareersLifeAtMattoxRoute,
+  CareersSearchJobsRoute: CareersSearchJobsRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
+
+interface IndustriesRouteChildren {
+  IndustriesBankingRoute: typeof IndustriesBankingRoute
+  IndustriesCommunicationsMediaRoute: typeof IndustriesCommunicationsMediaRoute
+  IndustriesEnergyRoute: typeof IndustriesEnergyRoute
+  IndustriesHealthRoute: typeof IndustriesHealthRoute
+  IndustriesPublicServiceRoute: typeof IndustriesPublicServiceRoute
+  IndustriesRetailRoute: typeof IndustriesRetailRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesBankingRoute: IndustriesBankingRoute,
+  IndustriesCommunicationsMediaRoute: IndustriesCommunicationsMediaRoute,
+  IndustriesEnergyRoute: IndustriesEnergyRoute,
+  IndustriesHealthRoute: IndustriesHealthRoute,
+  IndustriesPublicServiceRoute: IndustriesPublicServiceRoute,
+  IndustriesRetailRoute: IndustriesRetailRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
+
+interface WhatWeDoRouteChildren {
+  WhatWeDoAiRoute: typeof WhatWeDoAiRoute
+  WhatWeDoIndustryXRoute: typeof WhatWeDoIndustryXRoute
+  WhatWeDoOperationsRoute: typeof WhatWeDoOperationsRoute
+  WhatWeDoSongRoute: typeof WhatWeDoSongRoute
+  WhatWeDoStrategyConsultingRoute: typeof WhatWeDoStrategyConsultingRoute
+  WhatWeDoTechnologyRoute: typeof WhatWeDoTechnologyRoute
+}
+
+const WhatWeDoRouteChildren: WhatWeDoRouteChildren = {
+  WhatWeDoAiRoute: WhatWeDoAiRoute,
+  WhatWeDoIndustryXRoute: WhatWeDoIndustryXRoute,
+  WhatWeDoOperationsRoute: WhatWeDoOperationsRoute,
+  WhatWeDoSongRoute: WhatWeDoSongRoute,
+  WhatWeDoStrategyConsultingRoute: WhatWeDoStrategyConsultingRoute,
+  WhatWeDoTechnologyRoute: WhatWeDoTechnologyRoute,
+}
+
+const WhatWeDoRouteWithChildren = WhatWeDoRoute._addFileChildren(
+  WhatWeDoRouteChildren,
+)
+
+interface WhatWeThinkRouteChildren {
+  WhatWeThinkAiReinventionRoute: typeof WhatWeThinkAiReinventionRoute
+}
+
+const WhatWeThinkRouteChildren: WhatWeThinkRouteChildren = {
+  WhatWeThinkAiReinventionRoute: WhatWeThinkAiReinventionRoute,
+}
+
+const WhatWeThinkRouteWithChildren = WhatWeThinkRoute._addFileChildren(
+  WhatWeThinkRouteChildren,
+)
+
+interface WhoWeAreRouteChildren {
+  WhoWeAreLeadershipRoute: typeof WhoWeAreLeadershipRoute
+  WhoWeAreNewsroomRoute: typeof WhoWeAreNewsroomRoute
+  WhoWeAreSustainabilityRoute: typeof WhoWeAreSustainabilityRoute
+}
+
+const WhoWeAreRouteChildren: WhoWeAreRouteChildren = {
+  WhoWeAreLeadershipRoute: WhoWeAreLeadershipRoute,
+  WhoWeAreNewsroomRoute: WhoWeAreNewsroomRoute,
+  WhoWeAreSustainabilityRoute: WhoWeAreSustainabilityRoute,
+}
+
+const WhoWeAreRouteWithChildren = WhoWeAreRoute._addFileChildren(
+  WhoWeAreRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CareersRoute: CareersRouteWithChildren,
+  ContactRoute: ContactRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WhatWeDoRoute: WhatWeDoRouteWithChildren,
+  WhatWeThinkRoute: WhatWeThinkRouteWithChildren,
+  WhoWeAreRoute: WhoWeAreRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
